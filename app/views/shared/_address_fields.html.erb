@@ -1,0 +1,15 @@
+<h2> Address </h2>
+<% fields_for @employee.address do |a| %>
+    <div class="field">
+       <%= f.label :street %><br />
+       <%= f.text_field :street %>
+     </div>
+     <div class="field">
+       <%= f.label :city %><br />
+       <%= f.text_field :city %>
+     </div>
+     <div class="field">
+       <%= f.label :zip %><br />
+       <%= f.text_field :zip %>
+     </div>
+<% end %>

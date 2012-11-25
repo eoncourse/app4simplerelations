@@ -1,0 +1,66 @@
+<%= form_for(@employee) do |f| %>
+    <% if @employee.errors.any? %>
+        <div id="error_explanation">
+          <h2><%= pluralize(@employee.errors.count, "error") %> prohibited this employee from being saved:</h2>
+
+          <ul>
+            <% @employee.errors.full_messages.each do |msg| %>
+                <li><%= msg %></li>
+            <% end %>
+          </ul>
+        </div>
+    <% end %>
+
+    <div class="field">
+      <%= f.label :name %>
+      <br/>
+      <%= f.text_field :name %>
+    </div>
+    <div class="field">
+      <%= f.label :email %>
+      <br/>
+      <%= f.text_field :email %>
+    </div>
+    <div class="field">
+      <%= f.label :position %>
+      <br/>
+      <%= f.text_field :position %>
+    </div>
+    <div class="field">
+      <%= f.label :hired %>
+      <br/>
+      <%= f.date_select :hired %>
+    </div>
+    <div class="field">
+      <%= f.label :wage %>
+      <br/>
+      <%= f.number_field :wage %>
+    </div>
+    <div class="field">
+      <%= f.label :note %>
+      <br/>
+      <%= f.text_area :note, :rows=>5 %>
+    </div>
+    <h3>Address</h3>
+    <%= fields_for 'address', @employee.address do |a| %>
+        <div class="field">
+          <%= a.label :street %>
+          <br/>
+          <%= a.text_field :street %>
+        </div>
+        <div class="field">
+          <%= a.label :city %>
+          <br/>
+          <%= a.text_field :city %>
+        </div>
+        <div class="field">
+          <%= a.label :zip %>
+          <br/>
+          <%= a.text_field :zip %>
+        </div>
+    <% end %>
+
+    <div class="actions">
+      <%= f.submit %>
+    </div>
+<% end %>

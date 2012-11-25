@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>App4simplerelations</title>
+  <%= stylesheet_link_tag    "application", :media => "all" %>
+  <%= javascript_include_tag "application" %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+<h1>Simple relations</h1>
+<ul>
+  <li><%= link_to "Employees", employees_path %></li>
+  <li><%= link_to "Tasks", tasks_path %></li>
+</ul>
+<%= yield %>
+
+</body>
+</html>
